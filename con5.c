@@ -37,11 +37,11 @@ int main(int argc, char *argv[]){
 	//Semaphore init
 	sem_init( &Agentsem, 0, 1 );
 	sem_init( &someTobacco, 0, 0 );
-    sem_init( &somePaper, 0, 0 );
-    sem_init( &someMatches, 0, 0 );
-    sem_init( &tobaccoSem, 0, 0 );
-    sem_init( &paperSem, 0, 0 );
-    sem_init( &matchSem, 0, 0 );
+    	sem_init( &somePaper, 0, 0 );
+    	sem_init( &someMatches, 0, 0 );
+    	sem_init( &tobaccoSem, 0, 0 );
+    	sem_init( &paperSem, 0, 0 );
+    	sem_init( &matchSem, 0, 0 );
 
 	//Creating thread
 	pthread_create( &AgentThread[0], NULL, Agent, NULL );
@@ -76,7 +76,7 @@ void *Agent(){
 		//Grab Random Number
 		Random = rand() % 3;
 
-		if( Random == 1 ){
+		if( Random == 0 ){
 
 			printf( "---------- Agent Has Supplies: Paper & Maches ----------\n" );
 			fflush( stdout );
@@ -90,7 +90,7 @@ void *Agent(){
 			//sem_wait( &someMatches );
 
 
-		}else if( Random == 2 ){
+		}else if( Random == 1 ){
 
 			printf( "---------- Agent Has Supplies: Tobacco & Maches ----------\n" );
 			fflush( stdout );
@@ -104,7 +104,7 @@ void *Agent(){
 			//sem_wait( &someTobacco );
 			//sem_wait( &someMatches );
 
-		}else if( Random == 3 ){
+		}else if( Random == 2 ){
 
 			printf( "---------- Agent Has Supplies: Tobacco & Paper ----------\n" );
 			fflush( stdout );
